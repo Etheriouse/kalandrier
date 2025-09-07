@@ -1,0 +1,38 @@
+
+.event > * {
+    margin: 0;
+    padding: 0;
+}
+
+.event {
+    position: absolute;
+    border-radius: 5px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.event > * {
+    margin: 5px;
+}
+
+.event-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+button:focus {
+    outline: none;
+}
+
+.event-description {
+    width: 80%;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 14px;
+    line-clamp: auto;
+    -webkit-box-orient: vertical;
+}

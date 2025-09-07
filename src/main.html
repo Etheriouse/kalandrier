@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./side-content.css">
+    <link rel="stylesheet" href="./event.css">
+    <link rel="stylesheet" href="./content.css">
+    <link rel="stylesheet" href="./dark.css">
+    <title>Artorias Tools</title>
+</head>
+
+<body>
+    <div id="main-app">
+
+        <div style="display: flex;" id="loading">
+            <style>
+                .loading-spinner {
+                    display: inline-block;
+                    width: 50px;
+                    height: 50px;
+                    border: 5px solid rgba(0, 0, 0, 0.1);
+                    border-radius: 50%;
+                    border-top-color: #3498db;
+                    /* Couleur du cercle */
+                    animation: spin 1s ease-in-out infinite;
+                }
+
+                @keyframes spin {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .loading-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+            </style>
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+
+        <div id="calendar" style="display: none;">
+
+            <div id="bar">
+                <div id="going-today">
+                    <span>Today</span>
+                </div>
+
+                <div id="select-week">
+                    <span>Date</span>
+                </div>
+            </div>
+            <div id="grid">
+                <div id="side-content">
+                </div>
+                <div id="content">
+
+                </div>
+                <div id="time-now"></div>
+            </div>
+        </div>
+        <script type="module" src="./js/calendar.js"></script>
+
+    </div>
+
+    <script type="module" src="./js/renderer.js"></script>
+</body>
+
+</html>

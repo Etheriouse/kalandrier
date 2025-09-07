@@ -1,0 +1,16 @@
+{
+  "name": "calendarapp",
+  "version": "1.0.0",
+  "description": "App for calendar on Desktop and mobile (Android)",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron . -gtk-version=3 --trace-warnings",
+    "build": "electron-builder"
+  },
+  "author": "Etheriouse",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^38.0.0"
+  }
+}
