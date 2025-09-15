@@ -1,0 +1,100 @@
+#bar {
+    display: flex;
+    flex-direction: column;
+}
+
+#day-title {
+    margin: 0;
+    margin-left: 2%;
+    width: 98%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+#day-title>div>h3:first-child {
+    margin-right: 5%;
+}
+
+#today {
+    min-width: 25%;
+}
+
+#day-title>div>div>* {
+    padding: 0;
+    margin: 0;
+}
+
+.day-title-div > h3 {
+    margin-right: 5% !important;
+}
+
+.day-title-div {
+    font-size: 1rem;
+    border-radius: 6px;
+    box-sizing: border-box;
+    flex-direction: row;
+    display: flex;
+    padding: 10px;
+    margin: 7px;
+    justify-content: center;
+}
+
+#day-title>div {
+    width: 100%;
+}
+
+#change-week {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    width: 100%;
+    margin-left: 1%;
+}
+
+#change-week>div {
+    margin-right: 2%;
+}
+
+#select-week {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#select-week>* {
+    white-space: nowrap;
+}
+
+#select-week-input {
+    margin-left: 5%;
+    height: 30px;
+    border-radius: 5px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+}
+
+button {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#going-today-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#going-today-button:hover {
+    background-color: #2980b9;
+}

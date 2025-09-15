@@ -1,0 +1,310 @@
+{
+    "money": {
+        "possible": {
+            "EUR": "Euro",
+            "USD": "US Dollar",
+            "JPY": "Japanese Yen",
+            "GBP": "British Pound",
+            "AUD": "Australian Dollar",
+            "CAD": "Canadian Dollar",
+            "CHF": "Swiss Franc",
+            "CNY": "Chinese Yuan",
+            "SEK": "Swedish Krona",
+            "NZD": "New Zealand Dollar",
+            "INR": "Indian Rupee",
+            "BRL": "Brazilian Real",
+            "RUB": "Russian Ruble",
+            "ZAR": "South African Rand",
+            "MXN": "Mexican Peso",
+            "SGD": "Singapore Dollar",
+            "HKD": "Hong Kong Dollar",
+            "NOK": "Norwegian Krone",
+            "KRW": "South Korean Won",
+            "TRY": "Turkish Lira",
+            "AED": "United Arab Emirates Dirham"
+        },
+        "convert": {
+            "EUR": 1,
+            "USD": 0.9259,
+            "JPY": 0.00627,
+            "GBP": 1.1628,
+            "AUD": 0.6098,
+            "CAD": 0.6803,
+            "CHF": 1.0417,
+            "CNY": 0.1277,
+            "SEK": 0.0866,
+            "NZD": 0.5649,
+            "INR": 0.0111,
+            "BRL": 0.1879,
+            "RUB": 0.0101,
+            "ZAR": 0.0492,
+            "MXN": 0.0552,
+            "SGD": 0.6897,
+            "HKD": 0.1188,
+            "NOK": 0.0858,
+            "KRW": 0.0007,
+            "TRY": 0.0299,
+            "AED": 0.2532
+        }
+    },
+    "size": {
+        "possible": {
+            "b": "Bit",
+            "kb": "Kilobit",
+            "mb": "Megabit",
+            "gb": "Gigabit",
+            "tb": "Terabit",
+            "pb": "Petabit",
+            "eb": "Exabit",
+            "zb": "Zettabit",
+            "yb": "Yottabit",
+            "rb": "Ronnabit",
+            "qb": "Quettabit",
+            "o": "Octet",
+            "ko": "Kilooctet",
+            "mo": "Megaoctet",
+            "go": "Gigaoctet",
+            "to": "Teraoctet",
+            "po": "Petaoctet",
+            "eo": "Exaoctet",
+            "zo": "Zettaoctet",
+            "yo": "Yottaoctet",
+            "ro": "Ronnaoctet",
+            "qo": "Quettaoctet"
+        },
+        "convert": {
+            "b": 1,
+            "kb": 1000,
+            "mb": 1000000,
+            "gb": 1000000000,
+            "tb": 1000000000000,
+            "pb": 1000000000000000,
+            "eb": 1000000000000000000,
+            "zb": 1000000000000000000000,
+            "yb": 1000000000000000000000000,
+            "rb": 1000000000000000000000000000,
+            "qb": 1000000000000000000000000000000,
+            "o": 8,
+            "ko": 8000,
+            "mo": 8000000,
+            "go": 8000000000,
+            "to": 8000000000000,
+            "po": 8000000000000000,
+            "eo": 8000000000000000000,
+            "zo": 8000000000000000000000,
+            "yo": 8000000000000000000000000,
+            "ro": 8000000000000000000000000000,
+            "qo": 8000000000000000000000000000000
+        }
+    },
+    "mass": {
+        "possible": {
+            "mg": "Milligram",
+            "g": "Gram",
+            "kg": "Kilogram",
+            "oz": "Ounce",
+            "lb": "Pound",
+            "st": "Stone",
+            "t": "Tonne"
+        }
+    },
+    "distance": {
+        "possible": {
+            "nm": "Nanometer",
+            "µm": "Micrometer",
+            "mm": "Millimeter",
+            "cm": "Centimeter",
+            "dcm": "Decimeter",
+            "m": "Meter",
+            "dm": "Decameter",
+            "hm": "Hectometer",
+            "km": "Kilometer",
+            "in": "Inch",
+            "ft": "Foot",
+            "yd": "Yard",
+            "mi": "Mile"
+        },
+        "convert": {
+            "nm": 0.000000001,
+            "µm": 0.000001,
+            "mm": 0.001,
+            "cm": 0.01,
+            "dcm": 0.1,
+            "m": 1,
+            "dm": 10,
+            "hm": 100,
+            "km": 1000,
+            "in": 0.0254,
+            "ft": 0.3048,
+            "yd": 0.9144,
+            "mi": 1609.34
+        }
+    },
+    "time": {
+        "possible": {
+            "ns": "Nanosecond",
+            "µs": "Microsecond",
+            "ms": "Millisecond",
+            "s": "Second",
+            "min": "Minute",
+            "h": "Hour",
+            "d": "Day",
+            "wk": "Week",
+            "mo": "Month",
+            "yr": "Year",
+            "decade": "Decade",
+            "century": "Century"
+        },
+        "convert": {
+            "ns": 0.000000001,
+            "µs": 0.000001,
+            "ms": 0.001,
+            "s": 1,
+            "min": 60,
+            "h": 3600,
+            "d": 86400,
+            "wk": 604800,
+            "mo": 2629746,
+            "yr": 31556952,
+            "decade": 315569520,
+            "century": 3155695200
+        }
+    },
+    "speed": {
+        "possible": {
+            "m/s": "Meter per second",
+            "km/h": "Kilometer per hour",
+            "mph": "Mile per hour",
+            "kt": "Knot",
+            "fps": "Foot per second"
+        },
+        "convert": {
+            "m/s": 3.6,
+            "km/h": 1,
+            "mph": 1.60934,
+            "kt": 1.852,
+            "fps": 1.09728
+        }
+    },
+    "volume": {
+        "possible": {
+            "ml": "Milliliter",
+            "cl": "Centiliter",
+            "dl": "Deciliter",
+            "l": "Liter",
+            "dal": "Decaliter",
+            "hl": "Hectoliter",
+            "kl": "Kiloliter",
+            "mm3": "Cubic Millimeter",
+            "cm3": "Cubic Centimeter",
+            "m3": "Cubic Meter",
+            "km3": "Cubic Kilometer",
+            "in3": "Cubic Inch",
+            "ft3": "Cubic Foot",
+            "yd3": "Cubic Yard",
+            "gal": "Gallon",
+            "qt": "Quart",
+            "pt": "Pint",
+            "fl oz": "Fluid Ounce",
+            "tsp": "Teaspoon",
+            "tbsp": "Tablespoon"
+        },
+        "convert": {
+            "mm3": 0.000000001,
+            "cm3": 0.000001,
+            "ml": 0.000001,
+            "cl": 0.00001,
+            "dl": 0.0001,
+            "l": 0.001,
+            "dal": 0.01,
+            "hl": 0.1,
+            "kl": 1,
+            "m3": 1,
+            "km3": 1000000000,
+            "tsp": 0.00000492892,
+            "tbsp": 0.0000147868,
+            "in3": 0.0000163871,
+            "ft3": 0.0283168,
+            "yd3": 0.764555,
+            "gal": 0.00378541,
+            "qt": 0.000946353,
+            "pt": 0.000473176,
+            "fl oz": 0.0000295735
+        }
+    },
+    "energy": {
+        "possible": {
+            "J": "Joule",
+            "kJ": "Kilojoule",
+            "cal": "Calorie",
+            "kcal": "Kilocalorie",
+            "Wh": "Watt-hour",
+            "kWh": "Kilowatt-hour",
+            "BTU": "British Thermal Unit",
+            "ft-lb": "Foot-pound",
+            "erg": "Erg",
+            "eV": "Electronvolt",
+            "kpm": "Kilopond-meter"
+        },
+        "convert": {
+            "J": 1,
+            "kJ": 1000,
+            "cal": 4.184,
+            "kcal": 4184,
+            "Wh": 3600,
+            "kWh": 3600000,
+            "BTU": 1055.06,
+            "ft-lb": 1.35582,
+            "erg": 0.0000001,
+            "eV": 1.60218e-19,
+            "kpm": 9.80665
+        }
+    },
+    
+    "angle": {
+        "possible": {
+            "deg": "Degree",
+            "rad": "Radian"
+        }
+    },
+    "temperature": {
+        "possible": {
+            "C": "Celsius",
+            "F": "Fahrenheit",
+            "K": "Kelvin"
+        }
+    },
+    "electricity": {
+        "possible": {
+            "A": "Ampere",
+            "V": "Volt",
+            "Ω": "Ohm",
+            "W": "Watt"
+        }
+    },
+    "quantity": {
+        "possible": {
+            "kg to l": "Kilogram to Liter",
+            "l to kg": "Liter to Kilogram"
+        }
+    },
+    "date": {
+        "possible": {
+            "YYYY-MM-DD": "Year-Month-Day",
+            "MM/DD/YYYY": "Month/Day/Year",
+            "DD-MM-YYYY": "Day-Month-Year",
+            "DD/MM/YYYY": "Day/Month/Year",
+            "tsn": "Unix Timestamp Nanoseconds",
+            "tsm": "Unix Timestamp Microseconds",
+            "tsms": "Unix Timestamp Milliseconds",
+            "tss": "Unix Timestamp Seconds"
+        }
+    },
+    "states": {
+        "possible": {
+            "solid": "Solid",
+            "liquid": "Liquid",
+            "gas": "Gas"
+        }
+    }
+}

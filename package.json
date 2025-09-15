@@ -1,0 +1,53 @@
+{
+  "name": "kalandrier",
+  "version": "1.0.0",
+  "description": "Multi-tools tools",
+  "main": "main.js",
+  "build": {
+    "appId": "com.example.kalandrier",
+    "productName": "kalandrier",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Network",
+      "icon": "build/icons",
+      "maintainer": "Zezeriouse Etheriouse.7@gmail.com"
+    }
+  },
+  "scripts": {
+    "test": "test",
+    "start": "electron . -gtk-version=3 --trace-warnings",
+    "build": "electron-builder --linux"
+  },
+  "author": "Etheriouse",
+  "license": "ISC",
+  "homepage": "https://zera-sakura.fr/kalandrier",
+  "devDependencies": {
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.2.0",
+    "cryptojs": "^2.5.3",
+    "decimal.js": "^10.5.0",
+    "hmac": "^1.0.1",
+    "https": "^1.0.0",
+    "ical": "^0.8.0",
+    "ical.js": "^2.1.0",
+    "node-os-utils": "^1.3.7",
+    "os-utils": "^0.0.14",
+    "prompt-sync": "^4.2.0",
+    "systeminformation": "^5.27.1"
+  }
+}

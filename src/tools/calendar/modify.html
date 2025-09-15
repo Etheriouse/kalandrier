@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../../js/color.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify event</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            overflow-y: hidden;
+            margin: 0;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        #content-event-register {
+            display: flex;
+            overflow-y: hidden;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            padding-top: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #left,
+        #right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        select,
+        input,
+        textarea,
+        button {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        #when {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        #start,
+        #end {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #register-event {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #register-event:hover {
+            background-color: #2980b9;
+        }
+
+        #color input {
+            height: 40px;
+            padding: 0;
+            border: none;
+            background: none;
+        }
+    </style>
+    <style>
+        #add-participant {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #add-person {
+            margin: 5px;
+        }
+
+        #new-person-add {
+            width: 200px;
+            margin: 5px;
+            white-space: nowrap;
+        }
+
+        #participants {
+            margin: 5px;
+            padding: 0.6rem;
+            font-size: 1rem;
+            min-height: 20px;
+            height: auto;
+            max-height: 225px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .participant-person {
+            margin: 0;
+            padding: 0;
+            margin-right: 5px;
+            white-space: nowrap;
+        }
+
+        .participant-remove {
+            margin: 0;
+            padding: 0;
+            padding-left: 5px;
+            padding-right: 5px;
+            cursor: pointer;
+        }
+
+        .a-participant {
+            display: flex;
+            flex-direction: row;
+            border-radius: 4px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: none;" id="loading">
+        <style>
+            .loading-spinner {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border: 5px solid rgba(0, 0, 0, 0.1);
+                border-radius: 50%;
+                border-top-color: #3498db;
+                /* Couleur du cercle */
+                animation: spin 1s ease-in-out infinite;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .loading-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+        </style>
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+    <div id="content-event-register" style="display: none;">
+        <div id="left">
+            <div id="name">
+                <h4>Name</h4>
+                <input id="input-name" placeholder="Event name">
+            </div>
+            <div id="when">
+                <div id="start">
+                    <h4>Start</h4>
+                    <input id="input-start-date" type="date">
+                    <input id="input-start-time" type="time" max="22">
+                </div>
+                <div id="end">
+                    <h4>End</h4>
+                    <input id="input-end-date" type="date">
+                    <input id="input-end-time" type="time">
+                </div>
+            </div>
+            <h4>Description</h4>
+            <textarea id="input-description" placeholder="Add a description..."></textarea>
+            <div id="color">
+                <h4>Which color</h4>
+                <input id="input-color" type="color">
+            </div>
+            <button id="register-event">Register</button>
+        </div>
+        <div id="right">
+            <div id="other">
+                <h4>Location</h4>
+                <input id="input-location" placeholder="Where?">
+                <h4>Category</h4>
+                <input id="input-categorie" placeholder="e.g., Meeting, Birthday">
+                <h4>Organizer</h4>
+                <input id="input-organizer" placeholder="Who?">
+            </div>
+            <div id="participation">
+                <h4>Participant</h4>
+                <textarea id="input-participants"></textarea>
+                </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+
+        import * as option__ from "../../js/tools/calendaroption.js"
+
+        async function get_event() {
+            option__.setupPerson();
+            const result = await window.api.getevent();
+
+            if (result) {
+
+                const start = new Date(result.start);
+                const end = new Date(result.end);
+
+
+                document.getElementById('input-start-date').value = `${start.getFullYear()}-${(start.getMonth() < 10 ? '0' : '') + (start.getMonth() + 1)}-${(start.getDate() < 10 ? '0' : '') + (start.getDate())}`
+                document.getElementById('input-end-date').value = `${end.getFullYear()}-${(end.getMonth() < 10 ? '0' : '') + (end.getMonth() + 1)}-${(end.getDate() < 10 ? '0' : '') + (end.getDate())}`
+
+                document.getElementById('input-start-time').value = start.getHours().toString().padStart(2, '0') + ":" + start.getMinutes().toString().padStart(2, '0');
+                document.getElementById('input-end-time').value = end.getHours().toString().padStart(2, '0') + ":" + end.getMinutes().toString().padStart(2, '0');
+
+                document.getElementById('input-name').value = result.name;
+                document.getElementById('input-color').value = result.color;
+                document.getElementById('input-description').value = result.description;
+                document.getElementById('input-location').value = result.location;
+                document.getElementById('input-categorie').value = result.categorie;
+                document.getElementById('input-participants').value = result.participants;
+                document.getElementById('input-organizer').value = result.organizer;
+            }
+        }
+
+        get_event();
+
+        document.getElementById('register-event').addEventListener('click', async () => {
+            const start_date = document.getElementById('input-start-date').value.split('-')
+            const start_time = document.getElementById('input-start-time').value.split(':')
+            const end_date = document.getElementById('input-end-date').value.split('-');
+            const end_time = document.getElementById('input-end-time').value.split(':')
+            const start = new Date(start_date[0], parseInt(start_date[1]) - 1, start_date[2], start_time[0], start_time[1]);
+            const end = new Date(end_date[0], parseInt(end_date[1]) - 1, end_date[2], end_time[0], end_time[1]);
+
+            const members = [];
+
+            Array.from(participants.children).forEach(member => {
+                members.push(member.querySelector('.participant-person').dataset.uid);
+            })
+
+            const event = {
+                data: {
+                    "last-write": new Date().toString(),
+                    "start": start.toString(),
+                    "end": end.toString(),
+                    "name": document.getElementById('input-name').value,
+                    "color": document.getElementById('input-color').value,
+                    "description": document.getElementById('input-description').value,
+                    "location": document.getElementById('input-location').value,
+                    "categorie": document.getElementById('input-categorie').value,
+                    "organizer": document.getElementById('input-organizer').value,
+                    "members": document.getElementById('input-participants').value,
+                    "uid": document.getElementById('content-event-register').dataset.uid,
+                },
+                "year": start_date[0]
+            };
+            window.api.confirmmodifyevent(event);
+        })
+    </script>
+</body>
+
+</html>

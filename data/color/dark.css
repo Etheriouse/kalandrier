@@ -1,0 +1,172 @@
+html {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+#icon-selector {
+    border-right: 1px solid #141414;
+}
+
+.day-title-div {
+    border: 1px solid #141414;
+}
+
+#select-week-input {
+    border: 2px solid #141414;
+    background-color: #3e3e3e;
+}
+
+button {
+    border: 1px solid #141414;
+}
+
+#load-psd-button {
+    border: 1px solid #141414;
+    background-color: #303030;
+}
+
+#load-psd-button:hover {
+    background: rgb(56, 56, 56);
+}
+
+#context-menu {
+    /* background: white; */
+    background: rgb(45, 45, 45);
+    border: 1px solid #141414;
+    /* border: 1px solid #ccc; */
+}
+
+#context-menu li:hover {
+    background: rgb(38, 38, 38);
+    /* background: #eee; */
+}
+
+#grid {
+    /* border-top: 1px solid #b5b5b5; */
+    border-top: 1px solid #141414;
+}
+
+#side-content {
+    /* border-right: 1px solid #b5b5b5; */
+    border-right: 1px solid #141414;
+}
+
+.day {
+    /* border-right: 1px solid #b5b5b5;
+    border-top: 1px solid #b5b5b5;*/
+    border-right: 1px solid #141414;
+    border-top: 1px solid #141414;
+}
+
+.tophour {
+    /* border-bottom: 1px #b5b5b5 solid; */
+    border-bottom: 1px #0d0d0d solid;
+}
+
+.bothour {
+    border-bottom: 1px solid #222222;
+    /* border-bottom: 1px #dcdcdc solid; */
+}
+
+#time-now {
+    background-color: rgb(255, 255, 255, 3%);
+
+}
+
+
+h4 {
+    color: #7aa2c8;
+}
+
+select,
+option,
+input,
+textarea,
+button,
+#participants {
+    border: 1px solid #141414;
+    background-color: #303030;
+    color: #ffffff;
+}
+
+.event>p {
+    background-color: 'none'
+}
+
+.a-participant {
+    border: 1px solid #141414;
+    background-color: #363636;
+}
+
+.a-participant>h4 {
+    color: #ffffff;
+}
+
+.instruction {
+    color: #ffffff;
+    border: 1px solid #141414;
+    background-color: #303030;
+}
+
+#title-pwd {
+    border-bottom: 1px solid #141414;
+}
+
+.pwd:hover {
+    background-color: #232323;
+}
+
+.groupe-psd {
+    border-bottom: 1px #0d0d0d solid;
+}
+
+.content-paper-clip {
+    color: #ffffff;
+    border: 1px solid #141414;
+}
+
+#title-history-clippaper {
+    border-bottom: 1px solid #141414;
+}
+
+#clippaper-list>div:hover {
+    background-color: #232323;
+}
+
+#input,
+#output {
+    border: 1px solid #141414;
+}
+
+#input-area {
+    background-color: #2d2d2d;
+}
+
+#tools-bar-whiteboard {
+    border: 1px solid #141414;
+}
+
+.tools-selected-whiteboard {
+    background-color: #3f3f3f;
+}
+
+#drawing-canvas {
+    border: 1px solid #141414;
+}
+
+#result-search {
+    border: 1px solid #141414;
+    background-color: #303030;
+}
+
+#show_pwd_button:hover {
+    background: rgb(56, 56, 56);
+}
+
+.tool-card-dashboard {
+    background-color: #303030;
+}
+
+.tool-card-dashboard:hover {
+    background-color: #363636;
+}

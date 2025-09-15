@@ -1,0 +1,12 @@
+{
+    "tools": {
+        "clipboard": {
+            "time_ago_s": 300,
+            "speed_clippaper_analyse": 700
+        },
+        "password": {
+            "number_try": 3
+        }
+    },
+    "colortheme": "dark"
+}

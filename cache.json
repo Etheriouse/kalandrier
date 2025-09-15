@@ -1,0 +1,16 @@
+{
+    "tools": {
+        "clipboard": {
+            "refresh_interval": "500"
+        },
+        "calendar": {
+            "time-travel": 42
+        },
+        "markdown": {
+            "input": "undefined"
+        }
+    },
+    "menu": {
+        "games": true
+    }
+}

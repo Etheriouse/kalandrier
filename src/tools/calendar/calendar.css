@@ -1,0 +1,130 @@
+#main-app {
+    display: flex;
+    flex-direction: row;
+}
+
+#change-week>div>span {
+    display: inline-block;
+    font-size: 25px;
+    transition-duration: 0.2s;
+}
+
+#change-week>div>span:hover {
+    display: inline-block;
+    transform: scale(1.3);
+    transition-duration: 0.2s;
+}
+
+#calendar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#grid {
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+#grid::-webkit-scrollbar {
+    display: none;
+}
+
+#side-content {
+    display: flex;
+    flex-direction: column;
+    width: 2%;
+    min-width: 40px;
+    height: 1500px;
+    box-sizing: border-box;
+}
+
+#side-content>div {
+    min-height: 100px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+}
+
+
+.day {
+    width: 100%;
+    height: 1500px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.bothour,
+.tophour {
+    box-sizing: border-box;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+}
+
+.event>* {
+    margin: 0;
+    padding: 0;
+}
+
+.event {
+    position: absolute;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+
+.event>* {
+    margin: 5px;
+}
+
+.event-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+button:focus {
+    outline: none;
+}
+
+.event-description {
+    width: 80%;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 14px;
+    line-clamp: auto;
+    -webkit-box-orient: vertical;
+}
+
+#time-now {
+    border-bottom: #3498db 2px solid;
+    /* background-color: rgb(0, 0, 0, 3%); */
+    background-color: rgb(255, 255, 255, 3%);
+    /* color theme */
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+}

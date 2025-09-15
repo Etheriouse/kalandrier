@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="./js/color.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Artorias Tools</title>
+    <style>
+        #main-app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #dashboard-datetime {
+            margin: 30px;
+            font-weight: 500;
+            font-size: 40px;
+        }
+
+        #tool-showcase {
+            padding: 2rem;
+        }
+
+        #tool-list {
+            padding: 5px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+            height: 100%;
+            gap: 2%;
+            overflow-y: auto;
+        }
+
+        #tool-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tool-card-dashboard {
+            border-radius: 12px;
+            width: auto;
+            padding: 5%;
+            margin-top: 1%;
+            transition: transform 0.2s;
+        }
+
+        .tool-card-dashboard:hover {
+            transition: transform 0.2s;
+            transform: scale(1.02);
+        }
+
+        .tool-icon-dashboard {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <div id="icon-selector">
+        </div>
+    </div>
+    <script src="./js/menu.js"></script>
+
+    <div id="main-app">
+        <div id="dashboard-datetime">
+            <div id="datetime-display"></div>
+        </div>
+        <div id="tool-showcase">
+            <div id="tool-list">
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">📅</div>
+                    <h4>Calendar</h4>
+                    <p style="display: none;">calendar</p>
+                    <p>Plan and manage your schedule and events with a sleek, minimalist calendar. Easily import and
+                        export ICS files for seamless integration with your other tools.</p>
+
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">📋</div>
+                    <h4>Clipboard</h4>
+                    <p style="display: none;">clipboard</p>
+                    <p>Access your clipboard history quickly and effortlessly. A simple tool to copy, paste, and manage
+                        multiple snippets.</p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">⚖️</div>
+                    <h4>Convertisseur d'unités</h4>
+                    <p style="display: none;">converter</p>
+                    <p>Convert any unit from around the world with ease — from metric to imperial, temperature, volume,
+                        and more.</p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">📓</div>
+                    <h4>Interpréteur Markdown</h4>
+                    <p style="display: none;">markdown</p>
+                    <p>Instantly preview your .md files in real time. Perfect for developers, writers, and note-takers
+                        alike.</p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">🔐</div>
+                    <h4>Password gestionnary</h4>
+                    <p style="display: none;">password</p>
+                    <p>Securely store and manage your passwords with an intuitive and easy-to-use interface. Safety
+                        meets simplicity.</p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">🔍</div>
+                    <h4>Recherche de fichiers</h4>
+                    <p style="display: none;">search</p>
+                    <p>Quickly find any file on your system with a smart, efficient search tool.</p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">🧱</div>
+                    <h4>Générateur de templates</h4>
+                    <p style="display: none;">template</p>
+                    <p>Create custom document templates in just a few clicks — ideal for resumes, reports, invoices, and
+                        more.</p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">🖌️</div>
+                    <h4>Tableau blanc</h4>
+                    <p style="display: none;">whiteboard</p>
+                    <p>Sketch, brainstorm, and collaborate in a freeform space that feels just like a real whiteboard.
+                    </p>
+                </div>
+
+                <div class="tool-card-dashboard">
+                    <div class="tool-icon-dashboard">🕹️</div>
+                    <h4>Games</h4>
+                    <p style="display: none;">games</p>
+                    <p>Take a break with quick and fun mini-games designed to help you relax and recharge.</p>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+            import * as menus from './js/menus.js'
+
+            Array.from(document.getElementById('tool-list').children).forEach(div => {
+                div.addEventListener('click', () => {
+                    menus.loadmenu("tools/" + div.childNodes[5].innerHTML + "/main.html");
+                })
+            })
+
+            function capitalizeFirstLetter(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            }
+
+            function updateDateTime() {
+                const now = new Date();
+                const locale = 'en-EN'; 
+                const dateOptions = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+
+                let dateParts = now.toLocaleDateString(locale, dateOptions).split(' ');
+        
+                if (dateParts.length >= 4) {
+                    dateParts[0] = capitalizeFirstLetter(dateParts[0]); 
+                    dateParts[2] = capitalizeFirstLetter(dateParts[2]); 
+                }
+                const dateStr = dateParts.join(' ');
+
+                const timeStr = now.toLocaleTimeString(locale, {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+
+                document.getElementById('datetime-display').textContent = `📅 ${dateStr} - ${timeStr}`;
+            }
+
+            setInterval(updateDateTime, 1000);
+            updateDateTime();
+        </script>
+    </div>
+
+    <script type="module" src="./js/renderer.js"></script>
+</body>
+
+</html>

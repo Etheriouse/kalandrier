@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="./js/color.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin password</title>
+</head>
+
+<body>
+    <div id="title">
+        <span>🗿</span>
+        <h2>Admin check</h2>
+    </div>
+    <div id="input-admin">
+        <!-- <h4>Enter super password</h4> -->
+        <input type="password" id="input-pwd" placeholder="Enter super password">
+        <p style="display: none; color: red;" id="pwd-false">Password incorrect</p>
+    </div>
+    <script>
+        document.getElementById('input-pwd').focus();
+        async function check_password() {
+            const result = await window.api.confirmedpasswordadmin(document.getElementById('input-pwd').value);
+            if (!result) {
+                document.getElementById('pwd-false').style.display = 'block';
+            }
+        }
+
+        window.addEventListener('keydown', (key) => {
+            if (key.key === 'Enter') {
+                check_password();
+            }
+            document.getElementById('pwd-false').style.display = "none";  
+        })
+    </script>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        #title {
+            display: flex;
+            flex-direction: row;
+            justify-items: baseline;
+        }
+
+        #input-admin {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            margin-bottom: 20px;
+        }
+
+        span {
+            font-size: 40px;
+        }
+
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-left: 0;
+            margin-top: 0;
+            overflow: hidden;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        #content-pwd-modif {
+            display: flex;
+            flex-direction: column;
+            overflow-y: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            padding-top: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+
+        h4 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+
+        input {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    </style>
+</body>
+
+</html>

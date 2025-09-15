@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <script src="./js/color.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Artorias Tools</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            overflow-y: hidden;
+            margin: 0;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        #content-event-register {
+            display: flex;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 2rem;
+            padding-top: 0;
+            border-radius: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main-app {
+            overflow-y: scroll;
+            height: 100%;
+        }
+
+        #main-app::-webkit-scrollbar {
+            display: none;
+        }
+
+        #left,
+        #right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 70%;
+        }
+
+        h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        select,
+        option,
+        input,
+        p {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #register-settings {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #register-settings:hover {
+            background-color: #2980b9;
+        }
+
+        #confirm-reset-psd {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #confirm-reset-psd>button {
+            margin-right: 7px;
+            margin-left: 7px;
+        }
+
+        #theme>div {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #theme>div>button {
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #calendar>div {
+            margin-left: 10px;
+            width: 90%;
+        }
+    </style>
+    <style>
+        #add-participant {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #new-person-add {
+            width: 200px;
+            margin: 5px;
+            white-space: nowrap;
+        }
+
+        #person-delete {
+            width: 200px;
+            margin: 5px;
+            white-space: nowrap;
+        }
+
+        #participants {
+            margin: 5px;
+            padding: 0.6rem;
+            font-size: 1rem;
+            min-height: 20px;
+            height: auto;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .participant-person {
+            margin: 0;
+            padding: 0;
+            margin-right: 5px;
+        }
+
+        .participant-modify {
+            margin: 0;
+            padding: 0;
+            padding-left: 5px;
+            padding-right: 5px;
+            cursor: pointer;
+        }
+
+        .participant-delete {
+            margin: 4px;
+        }
+
+        .a-participant {
+            display: flex;
+            flex-direction: row;
+            border-radius: 4px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .div-content {
+            display: flex;
+            flex-direction: row;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .div-check {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <div id="icon-selector">
+        </div>
+    </div>
+    <script src="./js/menu.js"></script>
+
+    <div id="main-app">
+        <div id="content-event-register">
+            <div id="left">
+                <div id="theme">
+                    <h4>Theme</h4>
+                    <div>
+                        <button id="light-theme">Light Theme</button>
+                        <button id="dark-theme">Dark Theme</button>
+                    </div>
+                    <p id="change-theme-confirm" style="color: orange; display: none;">
+                        Reload the app for changes to fully apply.
+                    </p>
+                </div>
+
+                <div id="calendar">
+                    <h4>Events</h4>
+
+                    <div>
+                        <style>
+                            button {
+                                margin: 2%;
+                            }
+
+                            #ics-url {
+                                margin: 2%;
+                            }
+                        </style>
+                        <h4>Url of ics Event</h4>
+                        <input id="ics-url" placeholder="place the url">
+                        <p id="bad" style="display: none; color: red;">Url don't work</p>
+                        <p id="good" style="display: none; color: green;">Url confirmed</p>
+                        <button id="confirm-url">Confirm</button>
+                        <script>
+                            document.getElementById('confirm-url').addEventListener('click', async () => {
+                                const result = await window.api.setUrlIcs(document.getElementById('ics-url').value);
+                                console.log(result)
+                                if(!result.ok) {
+                                    document.getElementById('bad').style.display="flex"
+                                } else {
+                                    document.getElementById('good').style.display="flex"
+                                }
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="module" src="./js/settings.js"></script>
+    </div>
+
+
+    <script type="module" src="./js/renderer.js"></script>
+</body>
+
+</html>
